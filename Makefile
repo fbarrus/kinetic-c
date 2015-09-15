@@ -210,7 +210,7 @@ json_uninstall:
 ${JSONC}/Makefile:
 	cd ${JSONC} && \
 	sh autogen.sh && \
-	./configure
+	./configure --prefix=${PREFIX}
 
 ${JSONC}/.libs/libjson-c.a: ${JSONC}/Makefile
 	cd ${JSONC} && \
