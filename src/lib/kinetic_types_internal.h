@@ -32,8 +32,8 @@
 
 #define KINETIC_MAX_OUTSTANDING_OPERATIONS_PER_SESSION (100)
 #define KINETIC_SOCKET_DESCRIPTOR_INVALID (-1)
-#define KINETIC_CONNECTION_TIMEOUT_SECS (30) /* Java simulator may take longer than 10 seconds to respond */
-#define KINETIC_OPERATION_TIMEOUT_SECS (20)
+#define KINETIC_CONNECTION_TIMEOUT_SECS (10) /* Java simulator may take longer than 10 seconds to respond */
+#define KINETIC_OPERATION_TIMEOUT_SECS (5)
 
 // Ensure __func__ is defined (for debugging)
 #if !defined __func__
