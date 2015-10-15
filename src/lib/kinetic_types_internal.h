@@ -30,7 +30,7 @@
 #include <time.h>
 #include <pthread.h>
 
-#define KINETIC_MAX_OUTSTANDING_OPERATIONS_PER_SESSION (64)
+#define KINETIC_MAX_OUTSTANDING_OPERATIONS_PER_SESSION (2048)
 #define KINETIC_SOCKET_DESCRIPTOR_INVALID (-1)
 #define KINETIC_CONNECTION_TIMEOUT_SECS (10) /* Java simulator may take longer than 10 seconds to respond */
 #define KINETIC_OPERATION_TIMEOUT_SECS (5)
