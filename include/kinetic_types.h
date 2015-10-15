@@ -510,6 +510,11 @@ typedef enum _KineticCommand_Priority{
 #define KINETIC_CLIENT_DEFAULT_MAX_THREADPOOL_THREADS 8
 
 /**
+ * @brief Internal library operations limit; exposed so clients can throttle themselves before blocking
+ */
+#define KINETIC_MAX_OUTSTANDING_OPERATIONS_PER_SESSION 2048
+
+/**
  * @brief Configuration values for the KineticClient connection.
  *
  * Configuration for the KineticClient connection. If fields are zeroed out, default
