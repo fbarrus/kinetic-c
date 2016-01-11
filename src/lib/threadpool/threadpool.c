@@ -139,7 +139,7 @@ static void commit_current_task(struct threadpool *t, struct marked_task *task, 
         if (ch != task->mark) { break; }
         assert(ch < t->task_reserve_head);
         if (ATOMIC_BOOL_COMPARE_AND_SWAP(&t->task_commit_head, ch, ch + 1)) {
-            assert(t->task_request_head <= t->task_commit_head);
+            // assert(t->task_request_head <= t->task_commit_head);
         }
     }
 }
