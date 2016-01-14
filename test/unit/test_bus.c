@@ -290,7 +290,7 @@ void test_Bus_RegisterSocket_should_expose_Listener_AddSocket_failure(void)
     b.fd_set = &fake_yacht;
     Yacht_Set_ExpectAndReturn(b.fd_set, 35, test_ci, &old_value, true);
     Listener_AddSocket_ExpectAndReturn(&fake_listener, test_ci, &completion_pipe, false);
-    
+
     TEST_ASSERT_FALSE(Bus_RegisterSocket(&b, BUS_SOCKET_PLAIN, 35, NULL));
 }
 
@@ -617,7 +617,7 @@ void test_Bus_Shutdown_should_expose_pthread_join_failure(void)
         .listener_count = 2,
         .listeners = listeners,
         .joined = joined,
-        .threads = threads,        
+        .threads = threads,
     };
 
     struct yacht fake_yacht = { .size = 0, };

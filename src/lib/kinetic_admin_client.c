@@ -277,11 +277,11 @@ KineticStatus KineticAdminClient_UpdateFirmware(KineticSession * const session,
 
     KineticOperation* operation = KineticAllocator_NewOperation(session);
     if (operation == NULL) {return KINETIC_STATUS_MEMORY_ERROR;}
-    
+
     KineticStatus status = KineticBuilder_BuildUpdateFirmware(operation, fw_path);
     if (status != KINETIC_STATUS_SUCCESS) {
         return status;
     }
-    
+
     return KineticController_ExecuteOperation(operation, NULL);
 }

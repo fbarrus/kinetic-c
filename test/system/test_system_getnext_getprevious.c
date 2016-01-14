@@ -108,7 +108,7 @@ static void compare_against_offset_key(GET_CMD cmd, bool metadataOnly)
         default:
             TEST_ASSERT(false);
         }
-        
+
         TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_SUCCESS, status);
 
         ByteBuffer expectedKeyBuffer = ByteBuffer_CreateAndAppendFormattedCString(key_exp_buf, sz, "key_%d", i);

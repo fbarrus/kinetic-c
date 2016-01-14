@@ -48,9 +48,9 @@ void KineticCountingSemaphore_Take(KineticCountingSemaphore * const sem) // WAIT
     uint32_t before = sem->count--;
     uint32_t after = sem->count;
     uint32_t waiting = sem->num_waiting;
-    
+
     pthread_mutex_unlock(&sem->mutex);
-    
+
     LOGF3("Concurrent ops throttle -- TAKE: %u => %u (waiting=%u)", before, after, waiting);
 }
 
@@ -58,7 +58,7 @@ void KineticCountingSemaphore_Give(KineticCountingSemaphore * const sem) // SIGN
 {
     KINETIC_ASSERT(sem != NULL);
     pthread_mutex_lock(&sem->mutex);
-    
+
     if (sem->count == 0 && sem->num_waiting > 0) {
         pthread_cond_signal(&sem->available);
     }
@@ -66,9 +66,9 @@ void KineticCountingSemaphore_Give(KineticCountingSemaphore * const sem) // SIGN
     uint32_t before = sem->count++;
     uint32_t after = sem->count;
     uint32_t waiting = sem->num_waiting;
-    
+
     pthread_mutex_unlock(&sem->mutex);
-    
+
     LOGF3("Concurrent ops throttle -- GIVE: %u => %u (waiting=%u)", before, after, waiting);
 #define FLOW_CONTROL_WAIT_TIME 1
     if (sem->max < after)

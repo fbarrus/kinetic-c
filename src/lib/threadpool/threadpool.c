@@ -42,7 +42,7 @@ static void set_defaults(struct threadpool_config *cfg) {
     if (cfg->task_ringbuf_size2 == 0) {
         cfg->task_ringbuf_size2 = DEFAULT_TASK_RINGBUF_SIZE2;
     }
-    
+
     if (cfg->max_threads == 0) { cfg->max_threads = DEFAULT_MAX_THREADS; }
 }
 
@@ -229,7 +229,7 @@ static void notify_new_task(struct threadpool *t) {
 
 static bool notify_shutdown(struct threadpool *t) {
     int done = 0;
-    
+
     for (int i = 0; i < t->live_threads; i++) {
         struct thread_info *ti = &t->threads[i];
         if (ti->status == STATUS_JOINED) {
@@ -248,7 +248,7 @@ static bool notify_shutdown(struct threadpool *t) {
             close(ti->parent_fd);
         }
     }
-    
+
     return (done == t->live_threads);
 }
 
@@ -283,7 +283,7 @@ static bool spawn(struct threadpool *t) {
         return false;
     } else {
         assert(false);
-    }                    
+    }
 }
 
 static void *thread_task(void *arg) {

@@ -273,7 +273,7 @@ static boxed_msg *box_msg(struct bus *b, bus_user_msg *msg) {
     } else {
         ci->largest_wr_seq_id_seen = msg->seq_id;
     }
-    
+
     box->timeout_sec = (time_t)msg->timeout_sec;
     if (box->timeout_sec == 0) {
         box->timeout_sec = BUS_DEFAULT_TIMEOUT_SEC;
@@ -355,7 +355,7 @@ bool Bus_RegisterSocket(struct bus *b, bus_socket_t type, int fd, void *udata) {
 
     /* Spread sockets throughout the different listener threads. */
     struct listener *l = b->listeners[l_id];
-    
+
     /* Metadata about the connection. Note: This will be shared by the
      * client thread and the listener thread, but each will only modify
      * some of the fields. The client thread will free this. */
@@ -550,7 +550,7 @@ bool Bus_Shutdown(bus *b) {
 void Bus_BackpressureDelay(struct bus *b, size_t backpressure, uint8_t shift) {
     /* Push back if message bus is too busy. */
     backpressure >>= shift;
-    
+
     if (backpressure > 0) {
         BUS_LOG_SNPRINTF(b, 8, LOG_SENDER, b->udata, 64,
             "backpressure %zd", backpressure);

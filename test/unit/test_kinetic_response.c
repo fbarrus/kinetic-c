@@ -102,7 +102,7 @@ void test_KineticResponse_GetKeyRange_should_return_the_Com__Seagate__Kinetic__P
 
     range = KineticResponse_GetKeyRange(&Response);
     TEST_ASSERT_NULL(range);
-    
+
     Com__Seagate__Kinetic__Proto__Message Message;
     memset(&Message, 0, sizeof(Message));
     Response.proto = &Message;

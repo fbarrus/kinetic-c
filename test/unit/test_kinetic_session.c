@@ -55,7 +55,7 @@ void setUp(void)
     };
     Client.bus = &MessageBus;
     KineticCountingSemaphore_Create_ExpectAndReturn(KINETIC_MAX_OUTSTANDING_OPERATIONS_PER_SESSION, &Semaphore);
-    
+
     KineticStatus status = KineticSession_Create(&Session, &Client);
     TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_SUCCESS, status);
     TEST_ASSERT_FALSE(Session.connected);
@@ -91,8 +91,8 @@ void test_KineticSession_Create_should_allocate_and_destroy_KineticConnections(v
 
     KineticCountingSemaphore_Create_ExpectAndReturn(KINETIC_MAX_OUTSTANDING_OPERATIONS_PER_SESSION, &Semaphore);
 
-    KineticStatus status = KineticSession_Create(&session, &Client);    
-    
+    KineticStatus status = KineticSession_Create(&session, &Client);
+
     TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_SUCCESS, status);
     TEST_ASSERT_FALSE(session.connected);
     TEST_ASSERT_EQUAL(-1, session.socket);
@@ -103,7 +103,7 @@ void test_KineticSession_Create_should_allocate_and_destroy_KineticConnections(v
     KineticAllocator_FreeSession_Expect(&session);
 
     status = KineticSession_Destroy(&session);
-    
+
     TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_SUCCESS, status);
 }
 

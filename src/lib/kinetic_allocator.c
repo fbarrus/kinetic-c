@@ -27,7 +27,7 @@
 KineticSession* KineticAllocator_NewSession(struct bus * b, KineticSessionConfig* config)
 {
     (void)b; // TODO: combine session w/connection, which will use this variable
-    
+
     // Allocate a new session
     KineticSession* session = KineticCalloc(1, sizeof(KineticSession));
     if (session == NULL) {

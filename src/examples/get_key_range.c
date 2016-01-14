@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 {
     (void)argc;
     (void)argv;
-    
+
     // Initialize kinetic-c and configure sessions
     KineticSession* session;
     KineticClientConfig clientConfig = {
@@ -85,7 +85,7 @@ int main(int argc, char** argv)
         fprintf(stderr, "FAILURE: Failed retrieving key range from device!\n");
         return 3;
     }
-    
+
     if (keys.used != 2) {
         fprintf(stderr, "FAILURE: Unexpected number of keys in returned range!\n");
         return 4;

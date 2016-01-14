@@ -473,7 +473,7 @@ void test_KineticBuilder_BuildP2POperation_should_build_a_P2POperation_request(v
     TEST_ASSERT_EQUAL(COM__SEAGATE__KINETIC__PROTO__COMMAND__MESSAGE_TYPE__PEER2PEERPUSH,
         Request.message.command.header->messagetype);
     TEST_ASSERT_EQUAL_PTR(&Request.message.body, Request.command->body);
-    
+
     TEST_ASSERT_NOT_NULL(Request.command->body->p2poperation);
 
     TEST_ASSERT_EQUAL("hostname",
@@ -847,7 +847,7 @@ void test_KineticBuilder_BuildSetACL_should_build_a_SECURITY_operation(void)
         Request.message.command.header->messagetype);
     TEST_ASSERT_TRUE(Request.message.command.header->has_messagetype);
     TEST_ASSERT_EQUAL_PTR(&Request.message.body, Request.command->body);
-    
+
     TEST_ASSERT_FALSE(Request.command->body->security->has_oldlockpin);
     TEST_ASSERT_FALSE(Request.command->body->security->has_newlockpin);
     TEST_ASSERT_FALSE(Request.command->body->security->has_olderasepin);

@@ -188,7 +188,7 @@ void test_Listener_Free_should_unblock_pending_callers_and_close_file_handles(vo
     nl->incoming_msg_pipe = 149;
     nl->shutdown_notify_fd = LISTENER_SHUTDOWN_COMPLETE_FD;
     nl->read_buf = calloc(32, sizeof(uint32_t));
-    
+
     for (int i = 0; i < MAX_PENDING_MESSAGES; i++) {
         nl->rx_info[i].state = RIS_INACTIVE;
     }

@@ -92,7 +92,7 @@ void setUp(void)
 void tearDown(void)
 {
     KineticStatus status = KINETIC_STATUS_INVALID;
-    
+
     if (failing) { return; }
 
     // Validate the object no longer exists

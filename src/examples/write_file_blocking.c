@@ -119,7 +119,7 @@ int main(int argc, char** argv)
 
     write_args* writeArgs = calloc(1, sizeof(write_args));
     writeArgs->session = session;
-    
+
     // Create a ByteBuffer for consuming chunks of data out of for overlapped PUTs
     writeArgs->data = ByteBuffer_Create(buf, dataLen, 0);
 

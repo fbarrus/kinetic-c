@@ -34,7 +34,7 @@ static void do_put_and_delete(KineticSession *session) {
 
     const uint8_t value[] = "value\x01\x02\x03\x04";
     ByteBuffer put_value_buf = ByteBuffer_MallocAndAppend(value, sizeof(value));
-    
+
     /* Populate tag with SHA1 of value */
     ByteBuffer put_tag_buf = ByteBuffer_Malloc(20);
     uint8_t sha1[20];
@@ -105,7 +105,7 @@ int main(int argc, char** argv)
     }
 
     do_put_and_delete(session);
-    
+
     // Shutdown client connection and cleanup
     KineticClient_DestroySession(session);
     KineticClient_Shutdown(client);

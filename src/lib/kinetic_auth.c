@@ -88,7 +88,7 @@ KineticStatus KineticAuth_PopulatePin(KineticSessionConfig const * const config,
     msg->message.authtype = COM__SEAGATE__KINETIC__PROTO__MESSAGE__AUTH_TYPE__PINAUTH;
     msg->message.has_authtype = true;
     msg->command.header = &msg->header;
-    
+
     // Configure PIN support
     KINETIC_ASSERT(pin.len <= KINETIC_PIN_MAX_LEN);
     if (pin.len > 0) { KINETIC_ASSERT(pin.data != NULL); }

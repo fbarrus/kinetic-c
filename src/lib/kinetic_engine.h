@@ -21,7 +21,7 @@
 #include "kinetic_types_internal.h"
 
 typedef struct _KineticEngine {
-    
+
 } KineticEngine;
 
 KineticStatus KineticEngine_Startup(KineticEngine * const engine);

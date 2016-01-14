@@ -92,7 +92,7 @@ void KineticMessage_ConfigureKeyRange(KineticMessage* const message,
     message->command.body->range = &message->keyRange;
 
     // Populate startKey, if supplied
-    message->command.body->range->has_startkey = 
+    message->command.body->range->has_startkey =
         (range->startKey.array.data != NULL);
     if (message->command.body->range->has_startkey) {
         message->command.body->range->startkey = (ProtobufCBinaryData) {
@@ -102,7 +102,7 @@ void KineticMessage_ConfigureKeyRange(KineticMessage* const message,
     }
 
     // Populate endKey, if supplied
-    message->command.body->range->has_endkey = 
+    message->command.body->range->has_endkey =
         (range->endKey.array.data != NULL);
     if (message->command.body->range->has_endkey) {
         message->command.body->range->endkey = (ProtobufCBinaryData) {

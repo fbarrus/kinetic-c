@@ -33,17 +33,17 @@ static void do_put_and_getprevious_getnext(KineticSession *session) {
         char key[] = "keyX";
         key[3] = '0' + i;
         ByteBuffer put_key_buf = ByteBuffer_MallocAndAppend(key, strlen(key));
-        
+
         uint8_t value[] = "valueX";
         value[5] = '0' + i;
         ByteBuffer put_value_buf = ByteBuffer_MallocAndAppend(value, sizeof(value));
-        
+
         /* Populate tag with SHA1 of value */
         ByteBuffer put_tag_buf = ByteBuffer_Malloc(20);
         uint8_t sha1[20];
         SHA1(put_value_buf.array.data, put_value_buf.bytesUsed, &sha1[0]);
         ByteBuffer_Append(&put_tag_buf, sha1, sizeof(sha1));
-        
+
         KineticEntry put_entry = {
             .key = put_key_buf,
             .value = put_value_buf,
@@ -153,7 +153,7 @@ int main(int argc, char** argv)
     }
 
     do_put_and_getprevious_getnext(session);
-    
+
     // Shutdown client connection and cleanup
     KineticClient_DestroySession(session);
     KineticClient_Shutdown(client);

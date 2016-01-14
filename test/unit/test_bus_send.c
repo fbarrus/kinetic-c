@@ -61,10 +61,10 @@ static boxed_msg Box = {
 void setUp(void) {
     memset(fds, 0, sizeof(fds));
     b = &B;
-    
+
     listeners[0] = &Listener;
     l = &Listener;
-    
+
     box = &Box;
 }
 

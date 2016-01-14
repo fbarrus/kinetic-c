@@ -30,7 +30,7 @@ void tearDown(void)
 {
     if (ClusterVersionSet) {
         KineticStatus status = KineticAdminClient_SetClusterVersion(Fixture.adminSession, 0);
-        TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_SUCCESS, status); 
+        TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_SUCCESS, status);
     }
     SystemTestShutDown();
 }

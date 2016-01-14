@@ -103,7 +103,7 @@ void test_ListenerHelper_PushMessage_should_add_a_message_to_the_listeners_comma
     msg->pipes[0] = 23;
 
     syscall_write_ExpectAndReturn(l->commit_pipe, msg_buf, sizeof(msg_buf), sizeof(msg_buf));
-    
+
     int reply_fd = -1;
     TEST_ASSERT_TRUE(ListenerHelper_PushMessage(l, msg, &reply_fd));
     TEST_ASSERT_EQUAL(23, reply_fd);
@@ -119,7 +119,7 @@ void test_ListenerHelper_PushMessage_should_retry_and_add_a_message_to_the_liste
     errno = EINTR;
     syscall_write_ExpectAndReturn(l->commit_pipe, msg_buf, sizeof(msg_buf), -1);
     syscall_write_ExpectAndReturn(l->commit_pipe, msg_buf, sizeof(msg_buf), sizeof(msg_buf));
-    
+
     int reply_fd = -1;
     TEST_ASSERT_TRUE(ListenerHelper_PushMessage(l, msg, &reply_fd));
     TEST_ASSERT_EQUAL(23, reply_fd);
@@ -134,7 +134,7 @@ void test_ListenerHelper_PushMessage_should_expose_errors(void)
 
     errno = EIO;
     syscall_write_ExpectAndReturn(l->commit_pipe, msg_buf, sizeof(msg_buf), -1);
-    
+
     int reply_fd = -1;
     ListenerTask_ReleaseMsg_Expect(l, msg);
     TEST_ASSERT_FALSE(ListenerHelper_PushMessage(l, msg, &reply_fd));

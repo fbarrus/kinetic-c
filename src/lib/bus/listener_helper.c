@@ -67,7 +67,7 @@ listener_msg *ListenerHelper_GetFreeMsg(listener *l) {
 bool ListenerHelper_PushMessage(struct listener *l, listener_msg *msg, int *reply_fd) {
     struct bus *b = l->bus;
     BUS_ASSERT(b, b->udata, msg);
-  
+
     #ifndef TEST
     uint8_t msg_buf[sizeof(uint8_t)];
     #endif
@@ -111,7 +111,7 @@ rx_info_t *ListenerHelper_GetFreeRXInfo(struct listener *l) {
             BUS_LOG_SNPRINTF(b, 5, LOG_LISTENER, b->udata, 128,
                 "rx_info_max_used <- %d", head->id);
             l->rx_info_max_used = head->id;
-            BUS_ASSERT(b, b->udata, l->rx_info_max_used < MAX_PENDING_MESSAGES); 
+            BUS_ASSERT(b, b->udata, l->rx_info_max_used < MAX_PENDING_MESSAGES);
         }
 
         BUS_LOG_SNPRINTF(b, 5, LOG_LISTENER, b->udata, 128,
@@ -123,7 +123,7 @@ rx_info_t *ListenerHelper_GetFreeRXInfo(struct listener *l) {
 
 rx_info_t *ListenerHelper_FindInfoBySequenceID(listener *l,
         int fd, int64_t seq_id) {
-    struct bus *b = l->bus;    
+    struct bus *b = l->bus;
     for (int i = 0; i <= l->rx_info_max_used; i++) {
         rx_info_t *info = &l->rx_info[i];
 
@@ -158,7 +158,7 @@ rx_info_t *ListenerHelper_FindInfoBySequenceID(listener *l,
 
     if (b->log_level > 5 || 0) {
         BUS_LOG_SNPRINTF(b, 0, LOG_LISTENER, b->udata, 64,
-            "==== Could not find <fd:%d, seq_id:%lld>, dumping table ====\n", 
+            "==== Could not find <fd:%d, seq_id:%lld>, dumping table ====\n",
             fd, (long long)seq_id);
         ListenerTask_DumpRXInfoTable(l);
     }

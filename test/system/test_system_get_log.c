@@ -79,7 +79,7 @@ void test_GetLog_should_retrieve_temeratures_from_device(void)
 void test_GetLog_should_retrieve_configuration_from_device(void)
 {
     char buf[1024];
-    
+
     Status = KineticAdminClient_GetLog(Fixture.session, KINETIC_DEVICE_INFO_TYPE_CONFIGURATION, &Info, NULL);
 
     TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_SUCCESS, Status);
@@ -156,7 +156,7 @@ void test_GetLog_should_retrieve_limits_from_device(void)
     TEST_ASSERT_NOT_NULL(Info->limits);
 
     LOG0("Device Limits:");
-    LOGF0("  maxKeySize: %u",                  Info->limits->maxKeySize);    
+    LOGF0("  maxKeySize: %u",                  Info->limits->maxKeySize);
     LOGF0("  maxValueSize: %u",                Info->limits->maxValueSize);
     LOGF0("  maxVersionSize: %u",              Info->limits->maxVersionSize);
     LOGF0("  maxTagSize: %u",                  Info->limits->maxTagSize);

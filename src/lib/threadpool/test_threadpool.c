@@ -56,7 +56,7 @@ static void task_cb(void *udata) {
     size_t res = fibs(arg);
 
     printf("%zd -- fibs(%zd) => %zd", tc, arg, res);
-    
+
     struct threadpool_info stats;
     Threadpool_Stats(t, &stats);
     dump_stats("", &stats);

@@ -25,7 +25,7 @@
 bool Bus_Init(bus_config *config, struct bus_result *res);
 
 /** Send a request. Blocks until the request has been transmitted.
- * 
+ *
  * Assumes the FD has been registered with Bus_register_socket;
  * sending to an unregistered socket is an error.
  *
@@ -40,7 +40,7 @@ bool Bus_SendRequest(struct bus *b, bus_user_msg *msg);
 
 /** Register a socket connected to an endpoint, and data that will be passed
  * to all interactions on that socket.
- * 
+ *
  * The socket will have request -> response messages with timeouts, as
  * well as unsolicited status messages.
  *

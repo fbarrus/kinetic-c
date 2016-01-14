@@ -136,7 +136,7 @@ void test_KineticAdmin_should_lock_and_unlock_a_device(void)
         status = KineticClient_Get(Fixture.session, &getEntry, NULL);
         TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_DEVICE_LOCKED, status);
     }
-    
+
     status = KineticAdminClient_UnlockDevice(Fixture.adminSession, NewPin);
     TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_SUCCESS, status);
     Locked = false;

@@ -294,7 +294,7 @@ void test_ByteBuffer_CreateAndAppendFormattedCString_should_append_a_generated_C
     uint8_t data[1024];
     size_t len = sizeof(data);
     memset(data, 0, len);
-    ByteBuffer buffer = 
+    ByteBuffer buffer =
         ByteBuffer_CreateAndAppendFormattedCString(data, sizeof(data),
             "Stuff: value=%d desc='%s'", 12, "foo");
     TEST_ASSERT_EQUAL_PTR(data, buffer.array.data);
@@ -309,7 +309,7 @@ void test_ByteBuffer_CreateAndAppendFormattedCString_should_return_NULL_if_forma
     uint8_t data[39];
     size_t len = sizeof(data);
     memset(data, 0, len);
-    ByteBuffer buffer = 
+    ByteBuffer buffer =
         ByteBuffer_CreateAndAppendFormattedCString(data, sizeof(data),
             "Stuff: value=%d desc='%s' fizzle=%0.4f", 12, "foo", 1.23456);
     TEST_ASSERT_EQUAL(0, buffer.bytesUsed);

@@ -53,7 +53,7 @@ KineticStatus KineticOperation_SendRequest(KineticOperation* const op)
 {
     KineticSession *session = op->session;
     KineticOperation_ValidateOperation(op);
-    
+
     if (!KineticRequest_LockSend(session)) {
         return KINETIC_STATUS_CONNECTION_ERROR;
     }
@@ -106,7 +106,7 @@ static KineticStatus send_request_in_lock(KineticOperation* const op)
         op->request, op->pin);
     if (status != KINETIC_STATUS_SUCCESS) {
         if (commandData) { free(commandData); }
-        return status;        
+        return status;
     }
 
     #ifndef TEST

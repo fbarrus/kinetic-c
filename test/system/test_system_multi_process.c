@@ -105,7 +105,7 @@ static void child_task(void) {
             .synchronization = sync,
             .force = true,
         };
-            
+
         put_statuses[i] = (OpStatus){
             .sem = KineticSemaphore_Create(),
             .status = KINETIC_STATUS_INVALID,

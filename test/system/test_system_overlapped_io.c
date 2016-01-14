@@ -141,7 +141,7 @@ void test_kinetic_client_should_be_able_to_store_an_arbitrarily_large_binary_obj
 
         // Wait for each overlapped PUT operations to complete and cleanup
         printf("  *** Waiting for PUT threads to exit...\n");
-        aggregateBandwidthPerIteration[iteration] = 0.0f; 
+        aggregateBandwidthPerIteration[iteration] = 0.0f;
         for (int i = 0; i < NUM_COPIES; i++) {
             int join_status = pthread_join(thread_id[i], NULL);
             TEST_ASSERT_EQUAL_MESSAGE(0, join_status, "pthread join failed");
@@ -189,7 +189,7 @@ static void* kinetic_put(void* kinetic_arg)
     KineticEntry* entry = &(arg->entry);
     int32_t objIndex = 0;
     struct timeval startTime, stopTime;
-    
+
     gettimeofday(&startTime, NULL);
 
     while (ByteBuffer_BytesRemaining(arg->data) > 0) {

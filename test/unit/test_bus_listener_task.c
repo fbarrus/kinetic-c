@@ -314,7 +314,7 @@ void test_ListenerTask_MainLoop_should_check_commands(void) {
         -1, poll_res);
     ListenerCmd_CheckIncomingMessages_Expect(l, &poll_res);
     ListenerIO_AttemptRecv_Expect(l, poll_res);
-    
+
     ListenerTask_MainLoop((void *)l);
 }
 
@@ -343,7 +343,7 @@ void test_ListenerTask_GrowReadBuf_should_grow_the_listeners_read_buffer(void)
     TEST_ASSERT_EQUAL(200, l->read_buf_size);
     TEST_ASSERT(l->read_buf);
     memset(&l->read_buf[0], 0xFF, 200);  // write to notify valgrind
-    
+
     free(l->read_buf);
 }
 

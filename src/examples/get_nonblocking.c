@@ -144,7 +144,7 @@ int main(int argc, char** argv)
 
     ByteBuffer_Free(getValue);
     ByteBuffer_Free(getTag);
-    
+
 
     // Shutdown client connection and cleanup
     KineticClient_DestroySession(session);

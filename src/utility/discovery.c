@@ -38,8 +38,8 @@ int main(int argc, char** argv)
     (void)argv;
     return discover_service();
 }
- 
-   
+
+
 //------------------------------------------------------------------------------
 // Service discovery
 
@@ -91,6 +91,6 @@ static int discover_service(void) {
             /* TODO: sink into json, print decoded data. */
         }
     }
-    
+
     return 0;
 }

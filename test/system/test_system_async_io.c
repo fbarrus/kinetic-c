@@ -127,7 +127,7 @@ void test_kinetic_client_should_store_a_binary_object_split_across_entries_via_o
         bytes_written / 1024.0f,
         elapsed_ms / 1000.0f,
         bandwidth);
-    
+
     printf("Transfer completed successfully!\n");
 
     ByteBuffer_Free(test_data);

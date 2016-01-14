@@ -45,7 +45,7 @@ KineticStatus KineticSession_Create(KineticSession * const session, KineticClien
 
     session->connected = false;
     session->socket = KINETIC_SOCKET_INVALID;
-    
+
     // initialize session send mutex
     if (pthread_mutex_init(&session->sendMutex, NULL) != 0) {
         LOG0("Failed initializing session send mutex!");
@@ -133,7 +133,7 @@ KineticStatus KineticSession_Disconnect(KineticSession * const session)
     if (!session->connected || session->socket < 0) {
         return KINETIC_STATUS_CONNECTION_ERROR;
     }
-    
+
     // Close the connection
     KineticSocket_Close(session->socket);
     Bus_ReleaseSocket(session->messageBus, session->socket, NULL);

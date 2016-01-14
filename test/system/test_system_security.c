@@ -101,7 +101,7 @@ void test_Secure_should_set_ACL_and_only_be_able_to_executed_permitted_operation
 
     SystemTestShutDown();
     SystemTestSetup(1, true);
-    
+
     /* Erase on identity 1 --> Permitted */
     status = KineticAdminClient_SetErasePin(Fixture.adminSession,
         OldPin, NewPin);

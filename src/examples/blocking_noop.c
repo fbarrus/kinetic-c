@@ -65,7 +65,7 @@ int main(int argc, char** argv)
     }
 
     do_noop(session);
-    
+
     // Shutdown client connection and cleanup
     KineticClient_DestroySession(session);
     KineticClient_Shutdown(client);

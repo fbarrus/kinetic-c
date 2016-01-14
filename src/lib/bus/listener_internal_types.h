@@ -50,7 +50,7 @@ typedef struct listener_msg {
     MSG_TYPE type;
     struct listener_msg *next;
     int pipes[2];
-    
+
     union {                     /* keyed by .type */
         struct {
             connection_info *info;
@@ -163,7 +163,7 @@ typedef struct listener {
     uint16_t inactive_fds;
 
     /** Tracked file descriptors, for polling.
-     * 
+     *
      * fds[INCOMING_MSG_PIPE_ID (0)] is the incoming_msg_pipe, so the
      * listener's poll is awakened by incoming commands. fds[1] through
      * fds[l->tracked_fds - l->inactive_fds] are the file descriptors

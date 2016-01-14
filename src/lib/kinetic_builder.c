@@ -271,7 +271,7 @@ Com__Seagate__Kinetic__Proto__Command__P2POperation* build_p2pOp(uint32_t nestin
 
     for(size_t i = 0; i < proto_p2pOp->n_operation; i++) {
         KINETIC_ASSERT(!ByteBuffer_IsNull(p2pOp->operations[i].key)); // TODO return invalid operand?
-        
+
         Com__Seagate__Kinetic__Proto__Command__P2POperation__Operation * p2p_op_op = calloc(1, sizeof(Com__Seagate__Kinetic__Proto__Command__P2POperation__Operation));
         if (p2p_op_op == NULL) { goto error_cleanup; }
 
@@ -315,7 +315,7 @@ KineticStatus KineticBuilder_BuildP2POperation(KineticOperation* const op,
                                                  KineticP2P_Operation* const p2pOp)
 {
     KineticOperation_ValidateOperation(op);
-        
+
     op->request->command->header->messagetype = COM__SEAGATE__KINETIC__PROTO__COMMAND__MESSAGE_TYPE__PEER2PEERPUSH;
     op->request->command->header->has_messagetype = true;
     op->request->command->body = &op->request->message.body;
@@ -323,7 +323,7 @@ KineticStatus KineticBuilder_BuildP2POperation(KineticOperation* const op,
     op->opCallback = &KineticCallbacks_P2POperation;
 
     op->request->command->body->p2poperation = build_p2pOp(0, p2pOp);
-    
+
     if (op->request->command->body->p2poperation == NULL) {
         return KINETIC_STATUS_OPERATION_INVALID;
     }
@@ -345,7 +345,7 @@ KineticStatus KineticBuilder_BuildGetLog(KineticOperation* const op,
     Com__Seagate__Kinetic__Proto__Command__GetLog__Type type, ByteArray name, KineticLogInfo** info)
 {
     KineticOperation_ValidateOperation(op);
-        
+
     op->request->command->header->messagetype = COM__SEAGATE__KINETIC__PROTO__COMMAND__MESSAGE_TYPE__GETLOG;
     op->request->command->header->has_messagetype = true;
     op->request->command->body = &op->request->message.body;
@@ -395,7 +395,7 @@ KineticStatus KineticBuilder_BuildSetPin(KineticOperation* const op, ByteArray o
             .data = new_pin.data, .len = new_pin.len };
         op->request->message.security.has_newerasepin = true;
     }
-    
+
     op->opCallback = &KineticCallbacks_Basic;
     op->request->pinAuth = false;
     op->timeoutSeconds = KineticOperation_TimeoutSetPin;
@@ -416,7 +416,7 @@ KineticStatus KineticBuilder_BuildErase(KineticOperation* const op, bool secure_
         COM__SEAGATE__KINETIC__PROTO__COMMAND__PIN_OPERATION__PIN_OP_TYPE__SECURE_ERASE_PINOP :
         COM__SEAGATE__KINETIC__PROTO__COMMAND__PIN_OPERATION__PIN_OP_TYPE__ERASE_PINOP;
     op->request->command->body->pinop->has_pinoptype = true;
-    
+
     op->opCallback = &KineticCallbacks_Basic;
     op->request->pinAuth = true;
     op->timeoutSeconds = KineticOperation_TimeoutErase;
@@ -433,12 +433,12 @@ KineticStatus KineticBuilder_BuildLockUnlock(KineticOperation* const op, bool lo
     op->request->message.command.header->has_messagetype = true;
     op->request->command->body = &op->request->message.body;
     op->request->command->body->pinop = &op->request->message.pinOp;
-    
+
     op->request->command->body->pinop->pinoptype = lock ?
         COM__SEAGATE__KINETIC__PROTO__COMMAND__PIN_OPERATION__PIN_OP_TYPE__LOCK_PINOP :
         COM__SEAGATE__KINETIC__PROTO__COMMAND__PIN_OPERATION__PIN_OP_TYPE__UNLOCK_PINOP;
     op->request->command->body->pinop->has_pinoptype = true;
-    
+
     op->opCallback = &KineticCallbacks_Basic;
     op->request->pinAuth = true;
     op->timeoutSeconds = KineticOperation_TimeoutLockUnlock;
@@ -449,11 +449,11 @@ KineticStatus KineticBuilder_BuildLockUnlock(KineticOperation* const op, bool lo
 KineticStatus KineticBuilder_BuildSetClusterVersion(KineticOperation* op, int64_t new_cluster_version)
 {
     KineticOperation_ValidateOperation(op);
-    
+
     op->request->message.command.header->messagetype = COM__SEAGATE__KINETIC__PROTO__COMMAND__MESSAGE_TYPE__SETUP;
     op->request->message.command.header->has_messagetype = true;
     op->request->command->body = &op->request->message.body;
-    
+
     op->request->command->body->setup = &op->request->message.setup;
     op->request->command->body->setup->newclusterversion = new_cluster_version;
     op->request->command->body->setup->has_newclusterversion = true;
@@ -537,11 +537,11 @@ KineticStatus KineticBuilder_BuildUpdateFirmware(KineticOperation* const op, con
     fclose(fp);
 
     op->value.len = len;
-    
+
     op->request->message.command.header->messagetype = COM__SEAGATE__KINETIC__PROTO__COMMAND__MESSAGE_TYPE__SETUP;
     op->request->message.command.header->has_messagetype = true;
     op->request->command->body = &op->request->message.body;
-    
+
     op->request->command->body->setup = &op->request->message.setup;
     op->request->command->body->setup->firmwaredownload = true;
     op->request->command->body->setup->has_firmwaredownload = true;

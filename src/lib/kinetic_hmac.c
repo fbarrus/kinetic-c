@@ -127,7 +127,7 @@ static void KineticHMAC_Compute(KineticHMAC* hmac,
     for (size_t i = 0; i < sizeof(uint32_t); i++) {
         fprintf(stderr, "%02x", ((uint8_t *)&lenNBO)[i]);
     }
-    
+
     fprintf(stderr, "' on data: \n");
     for (size_t i = 0; i < msg->commandbytes.len; i++) {
         fprintf(stderr, "%02x", msg->commandbytes.data[i]);

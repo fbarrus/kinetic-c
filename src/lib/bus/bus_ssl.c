@@ -131,7 +131,7 @@ static bool do_blocking_connection(struct bus *b, SSL *ssl, int fd) {
     struct pollfd fds[1];
     fds[0].fd = fd;
     fds[0].events = POLLOUT;
-    
+
     bool connected = false;
     size_t elapsed = 0;
 
@@ -165,12 +165,12 @@ static bool do_blocking_connection(struct bus *b, SSL *ssl, int fd) {
                         BUS_LOG(b, 4, LOG_SOCKET_REGISTERED, "WANT_WRITE", b->udata);
                         fds[0].events = POLLOUT;
                         break;
-                        
+
                     case SSL_ERROR_WANT_READ:
                         BUS_LOG(b, 4, LOG_SOCKET_REGISTERED, "WANT_READ", b->udata);
                         fds[0].events = POLLIN;
                         break;
-                        
+
                     case SSL_ERROR_SYSCALL:
                     {
                         if (Util_IsResumableIOError(errno)) {
@@ -218,6 +218,6 @@ static bool do_blocking_connection(struct bus *b, SSL *ssl, int fd) {
             }
         }
     }
-    
+
     return connected;
 }

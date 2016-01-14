@@ -224,7 +224,7 @@ void Listener_Free(struct listener *l) {
 
         if (l->read_buf) {
             free(l->read_buf);
-        }                
+        }
 
         syscall_close(l->commit_pipe);
         syscall_close(l->incoming_msg_pipe);

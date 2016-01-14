@@ -358,7 +358,7 @@ void test_kinetic_client_throughput_test_kinetic_client_throughput_(void)
     }
 
     KineticClient_Shutdown(client);
-    
+
 }
 
 static void op_finished(KineticCompletionData* kinetic_data, void* clientData)

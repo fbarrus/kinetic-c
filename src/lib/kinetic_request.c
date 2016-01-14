@@ -113,7 +113,7 @@ KineticStatus KineticRequest_PackMessage(KineticOperation *operation,
     KineticLogger_LogHeader(3, &header);
     KineticLogger_LogProtobuf(3, proto);
     #endif
-    
+
     // Pack value payload, if supplied
     if (header.valueLength > 0) {
         memcpy(&msg[offset], operation->value.data, operation->value.len);

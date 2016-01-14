@@ -157,7 +157,7 @@ static int put_chunk_of_file(FileTransferProgress* transfer)
         fprintf(stderr, "Failed reading data from file!\n");
         REPORT_ERRNO(bytesRead, "read");
     }
-    
+
     return bytesRead;
 }
 
@@ -202,7 +202,7 @@ FileTransferProgress * start_file_transfer(KineticSession* session,
     pthread_mutex_init(&transferState->transferMutex, NULL);
     pthread_mutex_init(&transferState->completeMutex, NULL);
     pthread_cond_init(&transferState->completeCond, NULL);
-        
+
     // Start max overlapped PUT operations
     for (size_t i = 0; i < transferState->maxOverlappedChunks; i++) {
         put_chunk_of_file(transferState);

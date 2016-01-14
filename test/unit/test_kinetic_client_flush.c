@@ -65,7 +65,7 @@ void test_KineticClient_flush_should_expose_memory_error_from_CreateOperation(vo
     KineticSession session;
 
     KineticAllocator_NewOperation_ExpectAndReturn(&session, NULL);
-    
+
     KineticStatus status = KineticClient_Flush(&session, NULL);
 
     TEST_ASSERT_EQUAL_KineticStatus(KINETIC_STATUS_MEMORY_ERROR, status);

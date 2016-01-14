@@ -38,7 +38,7 @@ void KineticResourceWaiter_SetAvailable(KineticResourceWaiter * const waiter)
     if (waiter->num_waiting > 0) {
         pthread_cond_signal(&waiter->ready_cond);
     }
-    
+
     pthread_mutex_unlock(&waiter->mutex);
 }
 

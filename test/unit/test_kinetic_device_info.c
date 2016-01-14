@@ -63,7 +63,7 @@ void test_KineticLogInfo_Create_should_allocate_and_populate_device_info_with_ut
     Com__Seagate__Kinetic__Proto__Command__GetLog getLog = COM__SEAGATE__KINETIC__PROTO__COMMAND__GET_LOG__INIT;
     getLog.n_utilizations = numUtilizations;
     char* names[] = {"fo", "shizzle"};
-    
+
     utilizations[0].name = names[0];
     utilizations[0].has_value = true;
     utilizations[0].value = 1.7f;

@@ -57,7 +57,7 @@ void setUp(void) {
     b = &B;
     box = &Box;
     l = &Listener;
-    
+
     backpressure = 0;
     memset(&done, 0, sizeof(done));
 }

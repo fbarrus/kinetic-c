@@ -266,7 +266,7 @@ KineticLogInfo* KineticLogInfo_Create(const Com__Seagate__Kinetic__Proto__Comman
     KineticLogInfo_Configuration* configuration = NULL;
     KineticLogInfo_Statistics* statistics = NULL;
     KineticLogInfo_Limits* limits = NULL;
-    KineticLogInfo_Device* device = NULL;    
+    KineticLogInfo_Device* device = NULL;
 
     utilizations = KineticLogInfo_GetUtilizations(getLog, &info->numUtilizations);
     if (utilizations == NULL) { goto cleanup; }
@@ -326,16 +326,16 @@ void KineticLogInfo_Free(KineticLogInfo* kdi) {
             }
             free(kdi->utilizations);
         }
-        
+
         if (kdi->temperatures) {
             for (size_t i = 0; i < kdi->numTemperatures; i++) {
                 free(kdi->temperatures[i].name);
             }
             free(kdi->temperatures);
         }
-        
+
         if (kdi->capacity) { free(kdi->capacity); }
-        
+
         if (kdi->configuration) {
             KineticLogInfo_Configuration *cfg = kdi->configuration;
 
@@ -363,10 +363,10 @@ void KineticLogInfo_Free(KineticLogInfo* kdi) {
             }
             free(cfg);
         }
-        
+
         if (kdi->statistics) { free(kdi->statistics); }
         if (kdi->limits) { free(kdi->limits); }
-        
+
         if (kdi->device) {
             if (kdi->device->name.data) { free(kdi->device->name.data); }
             free(kdi->device);

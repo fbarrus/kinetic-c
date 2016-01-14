@@ -247,6 +247,6 @@ KineticStatus KineticCallbacks_UpdateFirmware(KineticOperation* const operation,
         free(operation->value.data);
         memset(&operation->value, 0, sizeof(ByteArray));
     }
-    
+
     return status;
 }

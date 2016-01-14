@@ -50,7 +50,7 @@ struct marked_task {
     void *udata;
     /* This mark is used to indicate which tasks can have the commit_head
      * and release_head counters advanced past them.
-     * 
+     *
      * mark == (task_commit_head that points at tast): commit
      * mark == ~(task_release_head that points at tast): release
      *

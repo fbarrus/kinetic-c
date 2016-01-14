@@ -42,7 +42,7 @@ void KineticSemaphore_Signal(KineticSemaphore * sem)
     pthread_mutex_lock(&sem->mutex);
     sem->signaled = true;
     pthread_cond_signal(&sem->complete);
-    pthread_mutex_unlock(&sem->mutex); 
+    pthread_mutex_unlock(&sem->mutex);
 }
 
 bool KineticSemaphore_CheckSignaled(KineticSemaphore * sem)
@@ -69,7 +69,7 @@ void KineticSemaphore_WaitForSignalAndDestroy(KineticSemaphore * sem)
     if (!sem->signaled) {
         pthread_cond_wait(&sem->complete, &sem->mutex);
     }
-    pthread_mutex_unlock(&sem->mutex); 
+    pthread_mutex_unlock(&sem->mutex);
 
     pthread_mutex_destroy(&sem->mutex);
     pthread_cond_destroy(&sem->complete);
