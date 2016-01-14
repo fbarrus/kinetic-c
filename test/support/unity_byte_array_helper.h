@@ -14,6 +14,7 @@
  *
  * See www.openkinetic.org for more project information
  */
+
 #ifndef _UNITY_BYTE_ARRAY_HELPER
 #define _UNITY_BYTE_ARRAY_HELPER
 
