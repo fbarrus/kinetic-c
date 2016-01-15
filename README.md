@@ -7,11 +7,15 @@ Reference code is included as part of the [kinetic-c client library test utility
 
 The [project Makefile](Makefile) can be used as a reference for developing a Makefile-based project for building for a custom Kinetic Storage C client driver and/or a high-level C library.
 
+The C library currently does not support Windows at this time because of existing library requirements. If you need Windows please post an issue.
+
+> The library has been tested in OSX and Linux, currently it does **not** have support for Windows (see [#23](https://github.com/Kinetic/kinetic-c/issues/23)).
+
 Kinetic Protocol Support
 ------------------------
 Built using:
 
-* [Kinetic Protocol branch features/batch-operation](https://github.com/Kinetic/kinetic-protocol/tree/features/batch-operation)
+* [Kinetic Protocol v3.0.5](https://github.com/Kinetic/kinetic-protocol/tree/3.0.6)
 * [ProtoBuf-C v1.1.0](https://github.com/protobuf-c/protobuf-c)
 * [Google ProtoBuf v2.6.0](https://developers.google.com/protocol-buffers/docs/downloads)
 
@@ -50,7 +54,7 @@ Getting Started
 
 **Clone the repo**
 
-    > git clone --recursive https://github.com/kinetic/kinetic-c.git
+    > git clone --recursive https://github.com/Kinetic/kinetic-c.git
     > cd kinetic-c
 
 **Update to the latest version (previously cloned)**
